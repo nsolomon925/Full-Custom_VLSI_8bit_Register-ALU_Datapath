@@ -34,4 +34,4 @@ The system was validated using a comprehensive suite of **16+ test vectors** (se
 * **/images**: Architectural diagrams and CMOS layout screenshots.
 
 ---
-**Design Team:** Connor Prior, Nahom Solomon, Seth Iris Canonigo, Tedla Boke
+**Design Team:** Nahom Solomon, Connor Prior, Seth Iris Canonigo, Tedla Boke
