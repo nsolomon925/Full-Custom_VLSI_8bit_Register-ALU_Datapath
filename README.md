@@ -7,21 +7,31 @@ This project involves the design, layout, and functional verification of an **8-
 
 ## 🛠️ Hardware Architecture
 
-### 1. 7+1 Register File
+### Register File (7+1 Configuration)
 A multi-port storage unit designed for simultaneous dual-read and single-write operations.
 * **Organization:** 7 general-purpose 8-bit registers + 1 hardwired **Zero Register** (Register 0).
 * **Synchronization:** Optimized for stable write-back, ensuring ALU results are correctly latched without race conditions.
 
-### 2. Multi-Functional ALU
+### Multi-Functional ALU
 The ALU handles 8 distinct operations driven by a 3-bit function code:
 * **Arithmetic:** 8-bit Addition and Subtraction with hardware-level **Overflow Detection**.
 * **Barrel Shifter:** Mux-based shifter supporting Logical/Arithmetic shifts and 8-bit rotations.
 * **Magnitude Comparison:** 8-bit comparator architecture optimized for $A > B$, $A < B$, and $A = B$ flags.
 * **Bitwise Logic:** CMOS-level AND, OR, XOR, and NOR.
 
-### 3. Physical Design (VLSI)
+### Physical Design (VLSI)
 * **Custom Cell Library:** Built using over 100 manually designed CMOS cells, including basic logic gates and sequential **D-Flip Flop (DFF)** arrays.
-* **Design Flow:** Transitioned from transistor-level schematics to optimized physical layouts.
+* **Design Flow:** Transitioned from transistor-level schematics to optimized physical layouts with **DRC=0** clearance.
+
+## 🔍 Architectural Visualization
+
+### Full-Custom Physical Layout
+The image below showcases the manual transistor-level layout of the 8-bit Datapath, including the Register File and ALU subunits, optimized for area and signal integrity.
+![Full-Custom Layout](images/full_custom_datapath_layout.png)
+
+### Functional Timing Analysis
+The following logic analyzer trace demonstrates successful instruction execution, register write-backs, and flag synchronization across multiple clock cycles.
+![Logic Analyzer Trace](images/logic_analyzer_trace.png)
 
 ## 🧪 Functional Verification
 The system was validated using a comprehensive suite of **16+ test vectors** (see `/verification` folder).
